@@ -1,7 +1,7 @@
-package com.team.snackpedia.snack.controller;
+package com.team.snackpedia.comment.controller;
 
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class SnackController {
+public class CommentController {
 }
