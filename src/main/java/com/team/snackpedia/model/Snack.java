@@ -22,6 +22,7 @@ public class Snack {
   private Integer favorite;
   private String snackOriginalPath;
   private String snackThumbnailPath;
+  private String category;
 
   @OneToOne
   private Allergy allergy;
