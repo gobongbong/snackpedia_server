@@ -13,8 +13,10 @@ public class UserServiceImpl implements UserService {
     UserRepository userRepository;
 
     @Override
-    public String signin(String userEmail, String userPassword, HttpSession session) {
-        return "signin";
+    public void signin(String userEmail, String userPassword, HttpSession session) {
+        System.out.println(userEmail + " : " + userPassword);
+        System.out.println("DB 유저 >>>>>> " + userRepository.findByUserEmailAndUserPassword(userEmail, userPassword));
+//        return userRepository.findByUserEmailAndUserPassword(userEmail);
     }
 
     @Override
