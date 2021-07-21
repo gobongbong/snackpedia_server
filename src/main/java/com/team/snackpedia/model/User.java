@@ -15,5 +15,5 @@ public class User {
   private String userName;
   private String userEmail;
   private String userPassword;
-  private String userProfilePath;
+//  private String userProfilePath;
 }

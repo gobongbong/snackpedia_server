@@ -3,38 +3,44 @@ import javax.servlet.http.HttpSession;
 
 import com.team.snackpedia.model.User;
 import com.team.snackpedia.repository.UserRepository;
+import com.team.snackpedia.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Map;
 
 import java.util.Optional;
 
 @RestController
 public class UserController {
     @Autowired
-    UserRepository userRepository;
+    UserService userService;
 
+    @CrossOrigin("*")
     @PostMapping("/signup")
-    public void signupPost(@ModelAttribute User user) {
-        System.out.println(1111);
-        userRepository.save(user);
-        //return "redirect:/";
+    public String signupPost(@ModelAttribute User user) {
+        System.out.println(user);
+                userService.signup(user);
+        return "redirect:/signin";
     }
 
+    @CrossOrigin("*")
     @PostMapping("/signin")
-    public void signinPost(@ModelAttribute User user, HttpSession session) {
-//         Optional<User> opt = userRepository.findByEmailAndPwd(user.getUserEmail(), user.getUserPassword());
-//        if(opt.isPresent()) {
-//            session.setAttribute("user", opt.get());
+    public String signin(@RequestParam(value = "userEmail", defaultValue = "0") String userEmail,
+                       @RequestParam(value = "userPassword", defaultValue = "0") String userPassword,  HttpSession session) {
+       userService.signin(userEmail,userPassword,session); //pricipal 접근주체...라는데..뭔지..모르겠고요..
+//        if(principal != null){
+//            session.setAttribute("principal",principal);
 //        }
-//        return "redirect:/";
-        System.out.println("나와라라아ㅏ아");
+        return "로그인 성공!";
+        //return new ResposeDto<Integer>(HttpStatus.OK.value(),1); ㅎㅎ?머람
     }
-//    @GetMapping("/signout")
-//    public String signout(HttpSession session) {
-//        session.invalidate();
-//        return "redirect:/";
- //   }
+
+    @GetMapping("/signout")
+    public String signout(HttpSession session) {
+        session.invalidate();
+        return "redirect:/";
+    }
 }
+
