@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Data
@@ -48,4 +50,12 @@ public class Snack {
   private Integer creativity;
   private Integer costPerformance;
   private Integer flavor;
+  private String msg;
+  private String color;
+  private String atsodium;
+  private String sulfite;
+  private String atsugar;
+  private String atfat;
+  private String swelling;
+  private String asparm;
 }

@@ -5,7 +5,7 @@ import com.team.snackpedia.model.User;
 import javax.servlet.http.HttpSession;
 
 public interface UserService {
-    public void signin(String userEmail, String userPassword, HttpSession session);
+    public User signin(String userEmail, String userPassword);
     public String signup(User user);
 
 }
