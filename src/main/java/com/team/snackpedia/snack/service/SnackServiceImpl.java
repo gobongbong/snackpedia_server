@@ -38,6 +38,7 @@ public class SnackServiceImpl implements SnackService {
 
   @Override
   public List<Snack> getSearchSnack(String search) {
+    System.out.println("검색어 >>>> " + search);
     return snackRepository.findAllBySnackName(search);
   }
 

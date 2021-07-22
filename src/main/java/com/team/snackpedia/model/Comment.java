@@ -12,10 +12,5 @@ public class Comment {
   private Long id;
   private String userName;
   private String content;
-
-  @ManyToOne
-  private User user;
-
-  @ManyToOne
-  private Snack snack;
+  private Long snackId;
 }
