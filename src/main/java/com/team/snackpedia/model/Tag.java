@@ -13,12 +13,12 @@ public class Tag {
   @Id
   @GeneratedValue(strategy =  GenerationType.AUTO)
   private Long id;
-  private Integer oily;
-  private Integer spicy;
-  private Integer sweet;
-  private Integer salty;
-  private Integer sour;
-  private Integer flat;
-  private Integer crispy;
-  private Integer soft;
+  private String oily;
+  private String spicy;
+  private String sweet;
+  private String salty;
+  private String sour;
+  private String flat;
+  private String crispy;
+  private String soft;
 }

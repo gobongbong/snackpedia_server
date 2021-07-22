@@ -13,10 +13,10 @@ public class Allergy {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
-  private Integer milk;
-  private Integer bean;
-  private Integer wheat;
-  private Integer egg;
-  private Integer fork;
-  private Integer fish;
+  private String milk;
+  private String bean;
+  private String wheat;
+  private String egg;
+  private String fork;
+  private String fish;
 }

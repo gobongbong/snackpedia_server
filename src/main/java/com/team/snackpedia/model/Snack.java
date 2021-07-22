@@ -1,11 +1,17 @@
 package com.team.snackpedia.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Entity
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Snack {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
@@ -23,10 +29,23 @@ public class Snack {
   private String snackOriginalPath;
   private String snackThumbnailPath;
   private String category;
-
-  @OneToOne
-  private Allergy allergy;
-
-  @OneToOne
-  private Tag tag;
+  private String milk;
+  private String bean;
+  private String wheat;
+  private String egg;
+  private String fork;
+  private String fish;
+  private String oily;
+  private String spicy;
+  private String sweet;
+  private String salty;
+  private String sour;
+  private String flat;
+  private String crispy;
+  private String soft;
+  private Integer repurchase;
+  private Integer satiety;
+  private Integer creativity;
+  private Integer costPerformance;
+  private Integer flavor;
 }
