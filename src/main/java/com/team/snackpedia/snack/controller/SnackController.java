@@ -6,7 +6,9 @@ import com.team.snackpedia.repository.SnackRepository;
 import com.team.snackpedia.snack.service.SnackService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,6 +26,7 @@ public class SnackController {
   @CrossOrigin("*")
   @GetMapping("/")
   public List<Snack> getAllSnack() {
+    System.out.println(snackService.getAllSnack());
     return snackService.getAllSnack();
   }
 
@@ -45,30 +48,24 @@ public class SnackController {
   //   과자 등록
   @CrossOrigin("*")
   @PostMapping("snack/regist")
-  public void postSnack(@RequestBody Map<String, Object> data) {
-    System.out.println(data);
-    //    return snackService.postSnack(data);
+  public String postSnack(@ModelAttribute Snack snack, @RequestPart("file") MultipartFile file) throws IOException {
+    return snackService.postSnack(snack, file);
   }
 
   //  임시 과자 등록 API
   @CrossOrigin("*")
-  @PostMapping("/comment/regist")
-  @ResponseBody
+  @PostMapping("/comment/asdasdasdasda")
 //  public String postCommet(Snack snack) {
-  public String postCommet(@ModelAttribute Snack snack) {
+  public String postCommet(@ModelAttribute Snack snack, @RequestPart("file") MultipartFile file) {
+
     System.out.println("과자 등록 정보 >>> " + snack);
 //    System.out.println("과자 등록 정보 >>> " + snackName);
 
-//    문제점 1. Client에서 Snack Model에 맞게 보낸 것 같은데 null로 나타남
 //    문제점 2. Snack 정보와 함께 이미지도 같이 받아올려면 파라미터에 어떻게 써야하는지
 
 //    궁금증 findAllBySnackName을 하면 찾고자 하는 글자가 있는 것들은 전부 다 들고 오는지
 //    e.g, 꼬깔콘 검색을 하면 [꼬깔콘], [꼬깔콘블랙], [꼬깔콘 레인보우] 다 받아오는지
 
-//    난수 1 ~ 5
-//    for(int i = 0; i < 5; i++) { // 1 ~ 5
-//      System.out.println((int)(Math.random()*5 + 1));
-//    }
 
     return "1";
   }
