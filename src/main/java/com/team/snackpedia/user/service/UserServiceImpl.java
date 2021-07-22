@@ -13,11 +13,20 @@ public class UserServiceImpl implements UserService {
     UserRepository userRepository;
 
     @Override
-    public void signin(String userEmail, String userPassword, HttpSession session) {
+    public String signin(String userEmail, String userPassword, HttpSession session) {
         System.out.println(userEmail + " : " + userPassword);
         System.out.println("DB 유저 >>>>>> " + userRepository.findByUserEmailAndUserPassword(userEmail, userPassword));
 //        return userRepository.findByUserEmailAndUserPassword(userEmail);
+        User dbUser = userRepository.findByUserEmailAndUserPassword(userEmail, userPassword);
+
+        if(dbUser != null) { //
+            System.out.println(dbUser);
+//            session.setAttribute("키값", dbUser.getId());
+            return dbUser.getUserEmail();
+        }
+        return "0";
     }
+
 
     @Override
     public String signup(User user) {
