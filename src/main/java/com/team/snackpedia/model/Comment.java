@@ -10,14 +10,12 @@ public class Comment {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
-  private Integer userRating;
-  private Integer score;
-  private Integer a;
-  private Integer b;
-  private Integer c;
-  private Integer d;
-  private Integer e;
+  private String userName;
+  private String content;
 
   @ManyToOne
   private User user;
+
+  @ManyToOne
+  private Snack snack;
 }
